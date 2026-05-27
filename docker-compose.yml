@@ -7,7 +7,7 @@ services:
     container_name: agentic-programming-slides
     restart: unless-stopped
     ports:
-      - "${HOST_PORT:-8080}:8080"
+      - "12080:8080"
     read_only: true
     tmpfs:
       - /var/cache/nginx
@@ -28,25 +28,9 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
-    deploy:
-      resources:
-        limits:
-          cpus: "0.50"
-          memory: 128M
-        reservations:
-          cpus: "0.05"
-          memory: 32M
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
-      # Traefik (optional — habilita si lo expones tras Traefik en Portainer)
-      - "traefik.enable=false"
-      - "traefik.http.routers.slides.rule=Host(`${PUBLIC_HOST:-slides.example.com}`)"
-      - "traefik.http.routers.slides.entrypoints=websecure"
-      - "traefik.http.routers.slides.tls.certresolver=letsencrypt"
-      - "traefik.http.services.slides.loadbalancer.server.port=8080"
     networks:
-      - web
+      - shared-network
 
 networks:
-  web:
-    driver: bridge
+  shared-network:
+    external: true
