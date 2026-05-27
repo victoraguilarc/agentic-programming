@@ -10,9 +10,9 @@ services:
       - "12080:8080"
     read_only: true
     tmpfs:
-      - /var/cache/nginx
-      - /var/run
-      - /tmp
+      - /var/cache/nginx:uid=101,gid=101
+      - /var/run:uid=101,gid=101
+      - /tmp:mode=1777
     security_opt:
       - no-new-privileges:true
     cap_drop:
