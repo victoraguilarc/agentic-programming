@@ -1,0 +1,133 @@
+/* ===== Overrides globales para todo el deck ===== */
+
+/* Tamaño base del cuerpo más compacto */
+.slidev-layout {
+  font-size: 0.68rem !important;
+}
+
+/* Títulos más compactos en TODOS los layouts */
+.slidev-layout h1,
+.slidev-page h1 {
+  font-size: 1.55rem !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.01em !important;
+  margin-bottom: 0.25rem !important;
+  font-weight: 600 !important;
+  background: linear-gradient(90deg, #5eead4 0%, #38bdf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  text-shadow: 0 0 30px rgba(94, 234, 212, 0.15);
+}
+
+/* h2 como subtítulo en gris suave */
+.slidev-layout h2,
+.slidev-page h2 {
+  font-size: 1rem !important;
+  line-height: 1.25 !important;
+  margin-bottom: 1.75rem !important;
+  font-weight: 500 !important;
+  color: #9ca3af !important;
+  opacity: 1 !important;
+}
+
+/* Subtítulo (primer párrafo tras h1) en gris suave */
+.slidev-layout h1 + p,
+.slidev-page h1 + p {
+  font-size: 0.85rem !important;
+  line-height: 1.3 !important;
+  margin-bottom: 1.75rem !important;
+  color: #9ca3af !important;
+  opacity: 1;
+}
+
+/* Subtítulo pegado al h1 */
+.slidev-layout h1 + * {
+  margin-top: 0.15rem !important;
+}
+.slidev-layout h1 + h2,
+.slidev-layout h1 + p {
+  margin-top: 0 !important;
+}
+
+.slidev-layout h3,
+.slidev-page h3 {
+  font-size: 0.78rem !important;
+  margin-top: 0.4rem !important;
+  margin-bottom: 0.25rem !important;
+  font-weight: 600 !important;
+}
+
+/* Excepciones: cover, intro, fact, center mantienen impacto pero contenidos */
+.slidev-layout.cover h1,
+.slidev-layout.intro h1 {
+  font-size: 2rem !important;
+  line-height: 1.15 !important;
+}
+
+.slidev-layout.fact h1 {
+  font-size: 2.6rem !important;
+  line-height: 1.1 !important;
+}
+
+.slidev-layout.center h1 {
+  font-size: 1.8rem !important;
+}
+
+.slidev-layout.end h1 {
+  font-size: 2rem !important;
+}
+
+/* Más aire alrededor del contenido */
+.slidev-layout {
+  padding: 3rem 3.5rem !important;
+}
+
+.slidev-layout.image-left,
+.slidev-layout.image-right {
+  padding: 2.5rem 3rem !important;
+}
+
+/* Imagen ocupa 40% del ancho en lugar de 50% */
+.slidev-page .grid.grid-cols-2.w-full.h-full.auto-rows-fr {
+  grid-template-columns: 40% 60% !important; /* image-left: imagen primero */
+}
+.slidev-page .grid.grid-cols-2.w-full.h-full.auto-rows-fr:has(> .slidev-layout:first-child) {
+  grid-template-columns: 60% 40% !important; /* image-right: contenido primero, imagen al 40% */
+}
+
+.slidev-layout.cover,
+.slidev-layout.intro,
+.slidev-layout.center,
+.slidev-layout.fact,
+.slidev-layout.end {
+  padding: 3rem !important;
+}
+
+/* Texto del cuerpo respira mejor */
+.slidev-layout p,
+.slidev-layout li {
+  line-height: 1.35 !important;
+}
+
+.slidev-layout ul,
+.slidev-layout ol {
+  margin-top: 0.3rem;
+}
+
+.slidev-layout li + li {
+  margin-top: 0.15rem;
+}
+
+/* Bloques de código menos densos */
+.slidev-layout pre,
+.slidev-layout code {
+  font-size: 0.62rem !important;
+  line-height: 1.35 !important;
+}
+
+/* Pequeño respiro entre secciones del slide */
+.slidev-layout > * + * {
+  margin-top: 0.3rem;
+}
