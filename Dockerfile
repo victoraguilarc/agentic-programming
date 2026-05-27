@@ -1,13 +1,16 @@
 # syntax=docker/dockerfile:1.7
 
 # ---------- Stage 1: build ----------
-FROM node:20-alpine AS builder
+FROM node:22-alpine AS builder
 
 ENV PNPM_HOME=/pnpm \
     PATH=/pnpm:$PATH \
-    NODE_ENV=development
+    NODE_ENV=development \
+    COREPACK_DEFAULT_TO_LATEST=0
 
-RUN corepack enable
+# Pin pnpm to a version compatible with the Node base image
+RUN corepack enable \
+    && corepack prepare pnpm@10.10.0 --activate
 
 WORKDIR /app
 
